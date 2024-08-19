@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
+	app := server.NewPocketBaseApp()
+	// server := server.NewServer()
 
-	server := server.NewServer()
-
-	err := server.ListenAndServe()
-	if err != nil {
+	// server.ListenAndServe()
+	if err := app.App.Start(); err != nil {
 		panic(fmt.Sprintf("cannot start server: %s", err))
 	}
 }
